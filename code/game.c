@@ -324,7 +324,7 @@ void update()
 	case 'r':
 		level = 1;
 		initmap();
-		scene = 6;  
+		scene = 8;  
 		
 		break;
 	case 'n':
@@ -332,6 +332,7 @@ void update()
 		{
 			++level;
 			initmap();
+			is_scene = 0;
 		}
 		else;
 		break;
@@ -347,7 +348,7 @@ void update()
 		}
 		break;
 	case 'e':
-		if (is_scene == -1 || scene == 4)//说明此时已经打印过scene=6了或者在初始界面退出
+		if (is_scene == -1 || scene == 6)//说明此时已经打印过scene=6了或者在初始界面退出
 		{
 			exit(1);
 		}
@@ -470,7 +471,6 @@ void render()
 				printf("%s", tab);
 				puts(it->game_interf[i]);
 			}
-			scene = 7;
 		}
 		else
 		{
@@ -486,7 +486,10 @@ void render()
 		}
 		is_scene = 0;
 		if (scene == 6)
+		{
 			is_scene = -1;
+			
+		}
 		else if (scene == 3)
 			scene = 0;		
 	}
@@ -496,13 +499,24 @@ void render()
 		char jump[8] = "\n\n\n\n\n\n\n";
 		puts(jump);
 		char tab[7] = "\t\t\t\t\t\t";
-		for (int i = 0; i < 15; i++)
+		if (level == 35)
 		{
-			printf("%s", tab);
-			puts(mp->maps[i]);
+			for (int i = 0; i < 11; i++)
+			{
+				printf("%s", tab);
+				puts(mp->maps[i]);
+			}
+		}	
+		else
+		{
+			for (int i = 0; i < 15; i++)
+			{
+				printf("%s", tab);
+				puts(mp->maps[i]);
+			}
 		}	
 		printf("\t\t\t\t\t\t   第%d关\n", level);
-		printf("\t\t\t\t\t    W:上 S:下 A:左 D:右\n");
+		printf("\t\t\t\t\t  W:上 S:下 A:左 D:右 撤销:U\n");
 		printf("\t\t\t\t\t\t本关已走%d步\n", step);
 	}
 
