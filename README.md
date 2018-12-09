@@ -1,6 +1,6 @@
 # PushBoxes
 >>``粗制滥造的没有灵性的推箱子``
->>>需要一个有灵性的人来玩<br>
+>>>需要一个有灵性的人来玩
 >>>>现在开始<br>
 >>>>首先检验你是否有灵性
 ![](https://github.com/MiracleVin/PushBoxes/blob/master/pictures/1.png)
